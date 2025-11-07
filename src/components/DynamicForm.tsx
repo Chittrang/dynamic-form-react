@@ -32,13 +32,12 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  // ✅ Update field values
   const handleChange = (name: string, value: any) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" })); // clear error on change
   };
 
-  // ✅ Strong field-level validation
+  // field-level validation
   const validateField = (field: Field, value: any): string => {
     if (field.required && !value) {
       return `${field.label} is required`;
@@ -72,7 +71,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) => {
     return "";
   };
 
-  // ✅ Submit handler
+  //Submit handler
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
@@ -87,13 +86,13 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) => {
     if (Object.keys(newErrors).length === 0) {
       setSubmitted(true);
       onSubmit?.(formData);
-      console.log("✅ Form Submitted:", formData);
+      console.log("Form Submitted:", formData);
     } else {
       setSubmitted(false);
     }
   };
 
-  // ✅ Render input fields dynamically
+  //Render input fields dynamically
   const renderField = (field: Field) => {
     const value = formData[field.name] || "";
 

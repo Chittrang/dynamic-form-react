@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DynamicForm from "./components/DynamicForm";
 import "./components/DynamicForm.css";
 
-// ✅ Original User Registration Schema (keep it same as before)
+//User Registration Schema
 const userRegistrationSchema = {
   title: "User Registration",
   fields: [
@@ -36,7 +36,7 @@ const userRegistrationSchema = {
   ],
 };
 
-// ✅ New Job Application Schema
+// Job Application Schema
 const jobApplicationSchema = {
   title: "Job Application",
   fields: [
@@ -79,7 +79,7 @@ const jobApplicationSchema = {
   ],
 };
 
-// ✅ Two schemas to choose from
+// Two schemas to choose from
 const schemas: Record<string, any> = {
   registration: userRegistrationSchema,
   job: jobApplicationSchema,
